@@ -1,72 +1,71 @@
 {
-    "name": "catpaw/core",
-    "description": "CatPaw core",
-    "type": "library",
-    "license": "MIT",
-    "keywords": [
-        "php",
-        "cli",
-        "server",
-        "http",
-        "websocket",
-        "catpaw"
-    ],
-    "authors": [
-        {
-            "name": "Razvan Tanase",
-            "email": "tangent.jotey@gmail.com"
-        }
-    ],
-    "scripts": {
-        "load": "composer dump-autoload -o",
-        "fix": [
-            "php -dxdebug.mode=off -dxdebug.start_with_request=no ./vendor/bin/php-cs-fixer fix src",
-            "php -dxdebug.mode=off -dxdebug.start_with_request=no ./vendor/bin/php-cs-fixer fix tests"
-        ],
-        "action:test": [],
-        "test": [],
-        "build": "php -dxdebug.mode=off -dxdebug.start_with_request=no -dphar.readonly=0 ./product.phar --build-config --build",
-        "download:product": "[ ! -f product.phar ] && wget https://github.com/tncrazvan/catpaw-dev-tools/releases/download/0.4.191/product.phar || echo \"product.phar found.\n\"",
-        "edit:extensions": "@download:product && php product.phar --extensions",
-        "post-autoload-dump": [
-            "@download:product"
-        ],
-        "post-create-project-cmd": [
-            "@download:product"
-        ]
-    },
-    "autoload": {
-        "psr-4": {
-            "CatPaw\\": [
-                "src/lib/"
-            ]
-        },
-        "files": [
-            "src/functions.php"
-        ]
-    },
-    "require": {
-        "php": "^8.1",
-        "amphp/amp": "^2.6",
-        "amphp/log": "^1.1",
-        "erusev/parsedown": "^1.7",
-        "amphp/file": "^2.0",
-        "amphp/process": "^1.1",
-        "ext-openssl": "*",
-        "ext-zlib": "*",
-        "vlucas/phpdotenv": "^5.4"
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.8",
-        "phpunit/phpunit": "^9",
-        "vimeo/psalm": "^4.23"
-    },
-    "config": {
-        "preferred-install": "dist"
+  "name": "catpaw/core",
+  "description": "CatPaw core",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "cli",
+    "server",
+    "http",
+    "websocket",
+    "catpaw"
+  ],
+  "authors": [
+    {
+      "name": "Razvan Tanase",
+      "email": "tangent.jotey@gmail.com"
     }
+  ],
+  "scripts": {
+    "load": "composer dump-autoload -o",
+    "fix": [
+      "php -dxdebug.mode=off -dxdebug.start_with_request=no ./vendor/bin/php-cs-fixer fix src",
+      "php -dxdebug.mode=off -dxdebug.start_with_request=no ./vendor/bin/php-cs-fixer fix tests"
+    ],
+    "action:test": [],
+    "test": [],
+    "build": "php -dxdebug.mode=off -dxdebug.start_with_request=no -dphar.readonly=0 ./product.phar --build-config --build",
+    "download:product": "[ ! -f product.phar ] && wget https://github.com/tncrazvan/catpaw-dev-tools/releases/download/0.4.191/product.phar || echo \"product.phar found.\n\"",
+    "edit:extensions": "@download:product && php product.phar --extensions",
+    "post-autoload-dump": [
+      "@download:product"
+    ],
+    "post-create-project-cmd": [
+      "@download:product"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "CatPaw\\": [
+        "src/lib/"
+      ]
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "require": {
+    "php": "^8.1",
+    "amphp/amp": "^2.6",
+    "amphp/log": "^1.1",
+    "erusev/parsedown": "^1.7",
+    "amphp/file": "^2.0",
+    "amphp/process": "^1.1",
+    "ext-openssl": "*",
+    "ext-zlib": "*",
+    "vlucas/phpdotenv": "^5.4"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.8",
+    "phpunit/phpunit": "^9"
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
 }
